@@ -1,0 +1,48 @@
+.table-hover > tbody > tr:hover > td, .table-hover > tbody > tr:hover > th {
+    background-color: #e7e7e7;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 900px) {
+    /* Force table to not be like tables anymore */
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+    /* Hide table headers */
+    thead tr {
+        display: none;
+    }
+    tr {
+        border: 1px solid #ccc;
+    }
+    td {
+        /* Behave  like a "row" */
+        position: relative;
+        padding-left: 50%!important;
+        white-space: normal;
+        text-align: left;
+    }
+    td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+    }
+    /*
+	Label the data
+	*/
+    td:before {
+        content: attr(data-title);
+    }
+}

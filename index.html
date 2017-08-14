@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>Protocol</title>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/layoutstyle.css" />
+    <!-- Table Style CSS -->
+    <link rel="stylesheet" href="css/table-style.css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+    <div id="wrapper" class="toggled">
+        <!-- Sidebar -->
+        <nav id="sidebar-wrapper">
+            <ul class="nav sidebar-nav" role="navigation">
+                <div class="toggle-button-container">
+                    <button type="button" id="menu-toggle-close" class="btn btn-default btn-circle"><i class="glyphicon glyphicon-arrow-left"></i></button>
+                    <p class="text-muted text-nowrap"> Menü elrejtése </p>
+                </div>
+                <li class="active"><a href="#">Kezdőlap <span class="sr-only">(current)</span></a></li>
+                <li>
+                    <a href="#" class="menubtn">
+                        Protokoll tervezés
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menubtn" id="menubtn-publishing" data-toggle="collapse" data-target="#submenu-publishing" aria-expanded="false">
+                        <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span> Protokoll publikálás
+                    </a>
+                    <ul class="nav submenu collapse" id="submenu-publishing" role="menu" aria-labelledby="menubtn-publishing">
+                        <li><a href="#">Nem publikált</a></li>
+                        <li><a href="#">Publikált</a></li>
+                        <li><a href="#">Visszavont</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="menubtn">Protokoll végrehajtás</a></li>
+                <li><a href="#" class="menubtn">Riportok</a></li>
+                <li>
+                    <a href="#" class="menubtn" id="menubtn-admin" class="menubtn" data-toggle="collapse" data-target="#submenu-admin" aria-expanded="false">
+                        <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span> Adminisztrácó
+                    </a>
+                    <ul class="nav submenu collapse" id="submenu-admin" role="menu" aria-labelledby="menubtn-admin">
+                        <li><a href="#">Szervezet</a></li>
+                        <li><a href="#">Szerepkör</a></li>
+                        <li><a href="#">Naptár</a></li>
+                        <li><a href="#">Eseménynapló</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <!-- /Sidebar -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <button type="button" id="menu-toggle-open" class="btn btn-default btn-circle" style="display: none"><i class="glyphicon glyphicon-arrow-right"></i></button>
+                <div id="toolbar">
+                    <h3 id="pagetitle"> tájtül </h3>
+                    <div class="btn-group">
+                        <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Típus <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Lorem</a></li>
+                            <li><a href="#">Ipsum</a></li>
+                            <li><a href="#">De caret</a></li>
+                        </ul>
+                    </div>
+                    <button type="button" class="btn btn-success btn-sm" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                    </button>
+                </div>
+                <!-- /.toggle-button-container -->
+            </nav>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <!--@RenderBody()-->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Page Content -->
+
+    </div>
+    <!-- /Wrapper -->
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.js"></script>
+
+    <script src="js/site.js" asp-append-version="true"></script>
+
+    <script src="js/login.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle-open").click(function(e) {
+            e.preventDefault();
+            $("#menu-toggle-open").hide(400);
+            $("#wrapper").toggleClass("toggled");
+
+        });
+        $("#menu-toggle-close").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+            $("#menu-toggle-open").show(400);
+
+        });
+
+        var $menu = $('#sidebar-wrapper');
+        $(".submenu").on('show.bs.collapse', function() {
+            $menu.find(".submenu").not(this).collapse("hide");
+
+        });
+    </script>
+</body>
+</html>
