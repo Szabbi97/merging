@@ -1,6 +1,6 @@
 $(document).ready(function() {
     //initial
-    $('#content').load('content/addRole/defaultdata.html');
+    $('#content').load('content/roles/index.html');
     //hanle menu clicks
     $('ul#nav li a').click(function() {
       var page = $(this).attr('href');
