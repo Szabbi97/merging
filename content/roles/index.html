@@ -1,1 +1,27 @@
-<h1>Index fájl</h1>
+<div class="table-responsive">
+    <table id="dataTable" 
+            class="table table-striped table-hover"
+            data-search="true"
+            data-mobile-responsive="true">
+        <thead>
+            <tr>
+                <th data-field="Name" data-sortable="true">Megnevezés</th>
+                <th data-field="Description">Leírás</th>
+                <th data-field="CreatedBy.DisplayName" data-sortable="true">Létrehozta</th>
+                <th data-field="CreatedDateTime" data-sortable="true">Létrehozás dátuma</th>
+                <th data-field="ModifiedBy.DisplayName" data-sortable="true">Módosította</th>
+                <th data-field="ModifiedDateTime" data-sortable="true">Módosítás dátuma</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<script>
+    var $table = $('#dataTable');
+    var data = '[{"SecurityRoleId":"00000000000000000000000000000000","Name":"String","Description":"String","PermissionAdmin":false,"PermissionProtocolDesigner":false,"PermissionProtocolPublisher":false,"PermissionProtocolManager":false,"PermissionProtocolExecutor":false,"PermissionReportDesigner":false,"PermissionReportViewer":false,"CreatedBy":{"UserId":0,"DisplayName":"String"},"CreatedDateTime":"0001-01-01 00:00:00","ModifiedBy":{"UserId":0,"DisplayName":"String"},"ModifiedDateTime":"0001-01-01 00:00:00","IsSystem":false,"SystemName":"String","ResponseStatus":{"ErrorCode":"String","Message":"String","StackTrace":"String","Errors":[{"ErrorCode":"String","FieldName":"String","Message":"String","Meta":{"String":"String"}}],"Meta":{"String":"String"}}}]';
+    data = $.parseJSON(data);
+    $table.bootstrapTable({
+        data: data
+    });
+</script>
